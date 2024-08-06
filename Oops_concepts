@@ -1,8 +1,8 @@
 The four pillars of Object Oriented Programming System(OOPS) are:
-Abstraction
-Encapsulation
-Inheritance
-Polymorphism
+1.Abstraction
+2.Encapsulation
+3.Inheritance
+4.Polymorphism
 
 
 ABSTRACTION - Hiding Complexity, Revealing Essence
@@ -62,3 +62,9 @@ public class Main{
   h1.eat();
   }
 }
+
+
+ENCAPSULATION
+Encapsulation, a fundamental principle in object-oriented programming, involves bundling data (attributes) and the operations that manipulate that data (methods) into a single cohesive unit known as a class. This encapsulation mechanism restricts direct access to the data, enforcing interaction through designated methods.
+In programming languages like Java, access modifiers (e.g., private, protected, public) are employed to control the visibility and accessibility of class members, thereby reinforcing encapsulation. This practice aligns with the principle of information hiding, which advocates minimizing dependencies between software components.
+
