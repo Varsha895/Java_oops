@@ -68,3 +68,102 @@ ENCAPSULATION
 Encapsulation, a fundamental principle in object-oriented programming, involves bundling data (attributes) and the operations that manipulate that data (methods) into a single cohesive unit known as a class. This encapsulation mechanism restricts direct access to the data, enforcing interaction through designated methods.
 In programming languages like Java, access modifiers (e.g., private, protected, public) are employed to control the visibility and accessibility of class members, thereby reinforcing encapsulation. This practice aligns with the principle of information hiding, which advocates minimizing dependencies between software components.
 
+
+INHERITANCE - Enables code reuse by creating new classes from existing ones.
+Types of Inheritance : 
+1. Single inheritance : When one class inherits another class
+
+class Shape {
+   public void area() {
+       System.out.println("Displays Area of Shape");
+   }
+}
+class Triangle extends Shape {
+   public void area(int h, int b) {
+       System.out.println((0.5)*b*h);
+   }  
+}
+
+2. Hierarchical inheritance : Hierarchical inheritance is defined as the process of deriving more than one class from a base class. 
+class Shape {
+   public void area() {
+       System.out.println("Displays Area of Shape");
+   }
+}
+class Triangle extends Shape {
+   public void area(int h, int b) {
+       System.out.println((0.5)*b*h);
+   }  
+}
+class Circle extends Shape {
+   public void area(int r) {
+       System.out.println((3.14)*r*r);
+   }  
+}
+
+3. Multilevel inheritance : Multilevel inheritance is a process of deriving a class from another derived class. 
+class Shape {
+   public void area() {
+       System.out.println("Displays Area of Shape");
+   }
+}
+class Triangle extends Shape {
+   public void area(int h, int b) {
+       System.out.println((0.5)*b*h);
+   }  
+}
+class EquilateralTriangle extends Triangle {
+  int side;
+  public void perimeter(int side){
+    System.out.println("Perimeter is "+3*side);
+  }
+}
+
+4. Hybrid inheritance : Hybrid inheritance is a combination of simple, multiple inheritance and hierarchical inheritance. 
+
+
+POLYMORPHISM - One Name, Many Forms
+Types of polymorphism-
+1. Compile Time Polymorphism (Static) 
+2. Runtime Polymorphism (Dynamic) 
+
+Compile Time Polymorphism : Method Overloading 
+Method overloading can be possible on the following basis: 
+1. The type of the parameters passed to the function. 
+2. The number of parameters passed to the function.
+class Student {
+   String name;
+   int age;
+  
+   public void displayInfo(String name) {
+       System.out.println(name);
+   }
+
+
+   public void displayInfo(int age) {
+       System.out.println(age);
+   }
+
+
+   public void displayInfo(String name, int age) {
+       System.out.println(name);
+       System.out.println(age);
+   }
+}
+
+Runtime Polymorphism : Function Overriding
+class Shape {
+   public void area() {
+       System.out.println("Displays Area of Shape");
+   }
+}
+class Triangle extends Shape {
+   public void area(int h, int b) {
+       System.out.println((0.5)*b*h);
+   }  
+}
+class Circle extends Shape {
+   public void area(int r) {
+       System.out.println((3.14)*r*r);
+   }  
+}
