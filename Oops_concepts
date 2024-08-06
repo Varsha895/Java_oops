@@ -3,3 +3,62 @@ Abstraction
 Encapsulation
 Inheritance
 Polymorphism
+
+
+ABSTRACTION - Hiding Complexity, Revealing Essence
+//Example code - using abstract keyword
+// Abstract class can have both abstract and non-abstract methods
+
+abstract class Animal{
+  abstract void walk();
+  public void eat(){
+    System.out.println("Animal eats");
+  }
+}
+
+class Horse extends Animal{
+  public void walk(){
+    System.out.println("Walks on 4 legs");
+  }
+}
+class Chicken extends Animal{
+  public void walk(){
+    System.out.println("Walks on 2 legs");
+  }
+}
+
+public class Main{
+  public static void main(String[] args){
+    Horse h1=new Horse();
+    h1.walk();
+    h1.eat(); //inherited from non-abstract method of abstract class
+
+    Animal a1=new Animal(); // throws error as abstract class cannot be instantiated
+    a1.walk();  //Gives runtime error
+  }
+}
+
+Conecpt of pure abstraction through INTERFACES
+//using keywords - interface and implements
+interface Animal{
+  void walk(); //interface method cannot have body
+}
+interface Herbivore{
+  void eat();
+}
+
+class Horse implements Animal, Herbivore{ //Interfaces support the concept of multiple inheritance
+  public void walk(){
+    System.out.println("Animal can walk");
+  }
+  public void eat(){
+    System.out.println("Eats only plants");
+  }
+}
+public class Main{
+  public static void main(String[] args){
+  Horse h1=new Horse();
+  h1.walk();
+  h1.eat();
+  }
+}
