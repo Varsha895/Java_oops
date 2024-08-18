@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object-Oriented Programming (OOP) Concepts</title>
+    <style>
+        /* Basic Styling (Customize as needed) */
+        body { font-family: Verdana; }
+        h1 { color:rgb(76, 48, 107); font-family: Calibri;}
+        h2 { color: rgb(68, 68, 158); }
+        ol { color: rgb(144, 81, 123)}
+        pre { background-color: #d7d6d6; font-family:Times New Roman; padding: 10px; padding-left: 2px;}
+    </style>
+</head>
+<body>
+
+    <h1>Object-Oriented Programming System(OOPS) Concepts</h1>
+
+    <h2>The four pillars of OOPS are:</h2>
+    <ol>
+        <li>Abstraction</li>
+        <li>Encapsulation</li>
+        <li>Inheritance</li>
+        <li>Polymorphism</li>
+    </ol>
+    <h2>Abstraction : Hiding complexity, Revealing essence</h2>
+    <p>Abstraction simplifies complex systems by focusing on essential aspects and hiding unnecessary details.</p>
+    
+    
+    <pre>
+//Example code - using abstract keyword
+// Abstract class can have both abstract and non-abstract methods
+        
+        abstract class Animal{
+          abstract void walk();
+          public void eat(){
+            System.out.println("Animal eats");
+          }
+        }
+        
+        class Horse extends Animal{
+          public void walk(){
+            System.out.println("Walks on 4 legs");
+          }
+        }
+        class Chicken extends Animal{
+          public void walk(){
+            System.out.println("Walks on 2 legs");
+          }
+        }
+        
+        public class Main{
+          public static void main(String[] args){
+            Horse h1=new Horse();
+            h1.walk();
+            h1.eat(); //inherited from non-abstract method of abstract class
+        
+            Animal a1=new Animal(); // throws error as abstract class cannot be instantiated
+            a1.walk();  //Gives runtime error
+          }
+        }
+    </pre>
+        
+    <p>Conecpt of pure abstraction through INTERFACES</p>
+    <pre>
+//using keywords - interface and implements
+
+        interface Animal{
+          void walk(); //interface method cannot have body
+        }
+        interface Herbivore{
+          void eat();
+        }
+        
+        class Horse implements Animal, Herbivore{ //Interfaces support the concept of multiple inheritance
+          public void walk(){
+            System.out.println("Animal can walk");
+          }
+          public void eat(){
+            System.out.println("Eats only plants");
+          }
+        }
+        public class Main{
+          public static void main(String[] args){
+          Horse h1=new Horse();
+          h1.walk();
+          h1.eat();
+          }
+        }        
+    </pre>
+
+    <h2>Encapsulation</h2>
+    <p>Encapsulation bundles data and behavior into cohesive units, restricting direct access to data.</p>
+    <p>Encapsulation, a fundamental principle in object-oriented programming, involves bundling data (attributes) and the operations that manipulate that data (methods) into a single cohesive unit known as a class. This encapsulation mechanism restricts direct access to the data, enforcing interaction through designated methods.
+        In programming languages like Java, access modifiers (e.g., private, protected, public) are employed to control the visibility and accessibility of class members, thereby reinforcing encapsulation. This practice aligns with the principle of information hiding, which advocates minimizing dependencies between software components.
+        </p>
+
+
+    <h2>Inheritance</h2>
+    <p>Inheritance enables code reuse by creating new classes from existing ones.</p>
+
+    <h3>Types of Inheritance</h3>
+    <ol>1. Single Inheritance: When one class inherits another class</ol>
+    <pre>
+        class Shape {
+            public void area() {
+                System.out.println("Displays Area of Shape");
+            }
+         }
+         class Triangle extends Shape {
+            public void area(int h, int b) {
+                System.out.println((0.5)*b*h);
+            }  
+         }
+    </pre>
+    
+    <ol>2. Hierarchical Inheritance: Hierarchical inheritance is defined as the process of deriving more than one class from a base class</ol>
+    <pre>
+        class Shape {
+            public void area() {
+                System.out.println("Displays Area of Shape");
+            }
+         }
+         class Triangle extends Shape {
+            public void area(int h, int b) {
+                System.out.println((0.5)*b*h);
+            }  
+         }
+         class Circle extends Shape {
+            public void area(int r) {
+                System.out.println((3.14)*r*r);
+            }  
+         }
+    </pre>
+
+    <ol>3. Multilevel Inheritance: Multilevel inheritance is a process of deriving a class from another derived class</ol>
+    <pre>
+        class Shape {
+            public void area() {
+                System.out.println("Displays Area of Shape");
+            }
+         }
+         class Triangle extends Shape {
+            public void area(int h, int b) {
+                System.out.println((0.5)*b*h);
+            }  
+         }
+         class EquilateralTriangle extends Triangle {
+           int side;
+           public void perimeter(int side){
+             System.out.println("Perimeter is "+3*side);
+           }
+         }
+    </pre>
+
+    <ol>4. Hybrid Inheritance: Hybrid inheritance is a combination of simple, multiple inheritance and hierarchical inheritance</ol>
+    
+
+
+    <h2>Polymorphism : One name, many forms</h2>
+    <p>Polymorphism allows objects of different classes to be treated as objects of a common superclass.</p>
+
+    <h3>Types in polymorphism-</h3>
+    <ol>
+        <li>Compile Time Polymorphism (Static) </li>
+        <li>Runtime Polymorphism (Dynamic) </li>
+    </ol>
+    
+    <pre>
+Compile Time Polymorphism : Method Overloading 
+
+Method overloading can be possible on the following basis: 
+        1. The type of the parameters passed to the function. 
+        2. The number of parameters passed to the function.
+
+        class Student {
+           String name;
+           int age;
+          
+           public void displayInfo(String name) {
+               System.out.println(name);
+           }
+        
+           public void displayInfo(int age) {
+               System.out.println(age);
+           }
+        
+           public void displayInfo(String name, int age) {
+               System.out.println(name);
+               System.out.println(age);
+           }
+        }
+    </pre>
+
+    
+    <pre>
+Runtime Polymorphism : Method Overriding
+
+        class Shape {
+           public void area() {
+               System.out.println("Displays Area of Shape");
+           }
+        }
+        class Triangle extends Shape {
+           public void area(int h, int b) {
+               System.out.println((0.5)*b*h);
+           }  
+        }
+        class Circle extends Shape {
+           public void area(int r) {
+               System.out.println((3.14)*r*r);
+           }  
+        }
+        
+        public class Main{
+           public static void main(String[] args){
+            Shape s1= new Shape();
+            s1.area();
+            Triangle t1=new Triangle();
+            t1.area(10,10);
+            Circle c1= new Circle();
+            c1.area(10);
+        }
+        }
+    </pre>
+
+</body>
+</html>
